@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-const Erin = () => (
-    <div>This is Erin</div>
-)
+const Erin = ({listItems= ['one', 'two', 'three']}) => {
+    return (
+        <ul>
+            {listItems.map(item => {
+                return <li>{item}</li>
+            })}
+        </ul>
+    )
+}
  
 export default Erin;
