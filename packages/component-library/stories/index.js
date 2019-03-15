@@ -52,6 +52,7 @@ import TypographyStyleHeadings from './TypographyStyleHeadings';
 import TypographyStyleParagraphs from './TypographyStyleParagraphs';
 import TheBrandStyle from './TheBrandStyle';
 import ThePlatformStyle from './ThePlatformStyle';
+import erinStory from './Erin.story';
 import Introduction from './Introduction';
 
 //Legacy components used in 2017 package. Not supported for ongoing development.
@@ -102,10 +103,12 @@ storiesOf('UX Style Guide', module)
 // common UI components
 storiesOf('UI Components', module)
   .addDecorator(checkA11y)
-  .add('UI Components Style Guide', () => <UIComponentsStyle />);
+  .add('UI Components Style Guide', () => <UIComponentsStyle />)
 buttonStory();
 dropdownStory();
 sliderStory();
+erinStory();
+
 
 // charts
 storiesOf('Charts', module)
