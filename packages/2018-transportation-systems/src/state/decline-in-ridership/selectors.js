@@ -41,3 +41,8 @@ export const catchRidershipOverTimeErrors = createSelector(
   getRidershipOverTimeRequest,
   ({ error }) => error || error
 );
+
+export const getActiveRoute = createSelector(
+  getRidershipOverTimeRequest,
+  ({route}) => route
+);
