@@ -1,7 +1,7 @@
 /* TODO: Fix linting errors */
 /* eslint-disable */
 
-import React, { Children } from "react";
+import React, { Children, Fragment } from "react";
 import { css } from "emotion";
 
 const toggleStyle = css`
@@ -15,6 +15,7 @@ const toggleStyle = css`
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 1em;
+  grid-column: 1 / 4;
 `;
 
 class Collapsable extends React.Component {
@@ -64,10 +65,10 @@ class Collapsable extends React.Component {
     }
 
     return (
-      <div>
+      <Fragment>
         {children}
         {toggle}
-      </div>
+      </Fragment>
     );
   }
 }

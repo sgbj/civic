@@ -14,7 +14,7 @@ const defaultStyles = css`
   > p {
     width: 100%;
     max-width: 700px;
-    font-size: 18px;
+    font-size: 1em;
     margin-bottom: 1.5em;
     line-height: 1.8;
 
@@ -23,7 +23,7 @@ const defaultStyles = css`
     }
 
     &.small {
-      font-size: 14px;
+      font-size: 0.8em;
     }
   }
 
