@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { css } from "emotion";
 import Header from "../Navigation/Header";
@@ -12,7 +12,6 @@ const defaultStyles = css`
   }
 
   > p {
-    width: 100%;
     max-width: 700px;
     font-size: 1em;
     margin-bottom: 1.5em;
@@ -34,10 +33,7 @@ const defaultStyles = css`
   & > h4,
   & > h5,
   & > h6 {
-    margin: auto;
-    @media (max-width: 640px) {
-      width: 90%;
-    }
+    margin: auto 2em;
   }
 `;
 
@@ -51,7 +47,7 @@ const PageLayout = ({
   children,
   attribution
 }) => (
-  <div>
+  <Fragment>
     {header && (
       <Header
         title="Civic"
@@ -69,7 +65,7 @@ const PageLayout = ({
     )}
     <div className={defaultStyles}>{children}</div>
     <Footer attribution={attribution} />
-  </div>
+  </Fragment>
 );
 
 PageLayout.displayName = "PageLayout";
