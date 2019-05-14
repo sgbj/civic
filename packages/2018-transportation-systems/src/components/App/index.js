@@ -30,7 +30,7 @@ const App = () => (
     {/* <ExploreBusServiceAndEquity /> */}
     {/* <MobilityTrendsUsingRealTimeData /> */}
     {/* <TheSecretIsInTheSensors /> */}
-    {/* <DiveDeeperIntoTransportationData /> */}
+    <DiveDeeperIntoTransportationData />
   </PageLayout>
 );
 
