@@ -14,7 +14,7 @@ import {
 import {
   fetchDiveDeeperIntoTransportationData,
   fetchDiveDeeperIntoTransportationDataCoords,
-  fetchDiveDeeperIntoTransportationDataSetCoords
+  diveDeeperIntoTransportationDataSetCoords
 } from "../../state/dive-deeper-into-transportation-data/actions";
 
 import {
@@ -94,7 +94,7 @@ export class DiveDeeperIntoTransportationData extends React.Component {
           geocoderOptions={geocoderOptions}
           geocoderOnChange={geocoderChange}
         >
-          {diveDeeperIntoTransportationData && (
+          {data && (
             <IconMap
               data={diveDeeperIntoTransportationData}
               opacity={0.5}
@@ -117,7 +117,10 @@ DiveDeeperIntoTransportationData.propTypes = {
   init: PropTypes.func,
   isLoading: PropTypes.bool,
   error: PropTypes.string,
-  diveDeeperIntoTransportationData: PropTypes.arrayOf(PropTypes.object)
+  data: PropTypes.shape({}),
+  coordsData: PropTypes.shape({}),
+  selectedCoords: PropTypes.shape({}),
+  setCoordinates: PropTypes.func
 };
 
 // Connect this to the redux store when necessary
