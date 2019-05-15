@@ -11,19 +11,29 @@ import {
   IconMap
 } from "@hackoregon/component-library";
 
-import { fetchDiveDeeperIntoTransportationData } from "../../state/decline-in-ridership/actions";
+import {
+  fetchDiveDeeperIntoTransportationData,
+  fetchDiveDeeperIntoTransportationDataCoords,
+  fetchDiveDeeperIntoTransportationDataSetCoords
+} from "../../state/dive-deeper-into-transportation-data/actions";
 
 import {
   isDiveDeeperIntoTransportationDataPending,
   catchDiveDeeperIntoTransportationDataErrors,
-  getDiveDeeperIntoTransportationData
-} from "../../state/decline-in-ridership/selectors";
+  getDiveDeeperIntoTransportationData,
+  isDiveDeeperIntoTransportationDataCoordsPending,
+  catchDiveDeeperIntoTransportationDataCoordsErrors,
+  getDiveDeeperIntoTransportationDataCoordsData,
+  getSelectedCoords
+} from "../../state/dive-deeper-into-transportation-data/selectors";
 
 import {
   poiIconZoomScale,
   poiGetIconColor,
   poiIconMapping
 } from "./layerStyles";
+
+const ZOOM = 13.5;
 
 const mapGLOptions = {
   scrollZoom: false,
@@ -41,7 +51,26 @@ export class DiveDeeperIntoTransportationData extends React.Component {
   }
 
   render() {
-    const { isLoading, error, diveDeeperIntoTransportationData } = this.props;
+    const {
+      isLoading,
+      error,
+      data,
+      coordsData,
+      selectedCoords,
+      setCoordinates
+    } = this.props;
+
+    const geocoderChange = viewport =>
+      setCoordinates({
+        latitude: viewport.latitude,
+        longitude: viewport.longitude
+      });
+    const coordsProperties =
+      coordsData &&
+      coordsData.features.length > 0 &&
+      coordsData.features[0].properties;
+    const noCoordsData = coordsData && coordsData.features.length < 1;
+
     return (
       <CivicStoryCard
         title="Dive Deeper into Transportation Data"
@@ -49,7 +78,17 @@ export class DiveDeeperIntoTransportationData extends React.Component {
         loading={isLoading}
         error={error}
       >
-        <BaseMap mapGLOptions={mapGLOptions}>
+        <BaseMap
+          mapGLOptions={mapGLOptions}
+          initialLongitude={selectedCoords.longitude}
+          initialLatitude={selectedCoords.latitude}
+          initialZoom={ZOOM}
+          navigation={false}
+          locationMarker={coordsProperties}
+          geocoder
+          geocoderOptions={geocoderOptions}
+          geocoderOnChange={geocoderChange}
+        >
           {diveDeeperIntoTransportationData && (
             <IconMap
               data={diveDeeperIntoTransportationData}
