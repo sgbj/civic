@@ -75,7 +75,6 @@ export class DiveDeeperIntoTransportationData extends React.Component {
       coordsData &&
       coordsData.features.length > 0 &&
       coordsData.features[0].properties;
-    const noCoordsData = coordsData && coordsData.features.length < 1;
 
     return (
       <CivicStoryCard
@@ -126,11 +125,19 @@ export default connect(
   state => ({
     isLoading: isDiveDeeperIntoTransportationDataPending(state),
     error: catchDiveDeeperIntoTransportationDataErrors(state),
-    diveDeeperIntoTransportationData: getDiveDeeperIntoTransportationData(state)
+    data: getDiveDeeperIntoTransportationData(state),
+    isCoordsLoading: isDiveDeeperIntoTransportationDataCoordsPending(state),
+    coordsError: catchDiveDeeperIntoTransportationDataCoordsErrors(state),
+    coordsData: getDiveDeeperIntoTransportationDataCoordsData(state),
+    selectedCoords: getSelectedCoords(state)
   }),
   dispatch => ({
     init() {
       dispatch(fetchDiveDeeperIntoTransportationData());
+    },
+    setCoordinates(coordinates = {}) {
+      dispatch(fetchDiveDeeperIntoTransportationDataCoords(coordinates));
+      dispatch(diveDeeperIntoTransportationDataSetCoords(coordinates));
     }
   })
 )(DiveDeeperIntoTransportationData);
