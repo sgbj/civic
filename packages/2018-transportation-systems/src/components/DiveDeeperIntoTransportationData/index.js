@@ -35,6 +35,12 @@ import {
 
 const ZOOM = 13.5;
 
+const geocoderOptions = {
+  bbox: [-123.1847001376, 45.2458284187, -122.2151566806, 45.8544896021],
+  zoom: 13.5,
+  placeholder: "Enter your address"
+};
+
 const mapGLOptions = {
   scrollZoom: false,
   dragPan: false,
