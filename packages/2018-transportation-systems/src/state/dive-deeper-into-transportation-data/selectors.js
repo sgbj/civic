@@ -1,42 +1,42 @@
 import { createSelector } from "reselect";
 import { rootState } from "../selectors";
 
-export const getYouAndYourNeighborsRequest = createSelector(
+export const getDiveDeeperIntoTransportationDataRequest = createSelector(
   rootState,
-  ({ youAndYourNeighbors }) => youAndYourNeighbors
+  ({ DiveDeeperIntoTransportationData }) => DiveDeeperIntoTransportationData
 );
 
-export const getYouAndYourNeighborsData = createSelector(
-  getYouAndYourNeighborsRequest,
+export const getDiveDeeperIntoTransportationData = createSelector(
+  getDiveDeeperIntoTransportationDataRequest,
   ({ data }) => data
 );
 
-export const isYouAndYourNeighborsPending = createSelector(
-  getYouAndYourNeighborsRequest,
+export const isDiveDeeperIntoTransportationDataPending = createSelector(
+  getDiveDeeperIntoTransportationDataRequest,
   ({ pending }) => !!pending
 );
 
-export const catchYouAndYourNeighborsErrors = createSelector(
-  getYouAndYourNeighborsRequest,
+export const catchDiveDeeperIntoTransportationDataErrors = createSelector(
+  getDiveDeeperIntoTransportationDataRequest,
   ({ error }) => error || error
 );
 
-export const getYouAndYourNeighborsCoordsData = createSelector(
-  getYouAndYourNeighborsRequest,
+export const getDiveDeeperIntoTransportationDataCoordsData = createSelector(
+  getDiveDeeperIntoTransportationDataRequest,
   ({ coordsData }) => coordsData
 );
 
-export const isYouAndYourNeighborsCoordsPending = createSelector(
-  getYouAndYourNeighborsRequest,
+export const isDiveDeeperIntoTransportationDataCoordsPending = createSelector(
+  getDiveDeeperIntoTransportationDataRequest,
   ({ coordsPending }) => !!coordsPending
 );
 
-export const catchYouAndYourNeighborsCoordsErrors = createSelector(
-  getYouAndYourNeighborsRequest,
+export const catchDiveDeeperIntoTransportationDataCoordsErrors = createSelector(
+  getDiveDeeperIntoTransportationDataRequest,
   ({ coordsError }) => coordsError || coordsError
 );
 
 export const getSelectedCoords = createSelector(
-  getYouAndYourNeighborsRequest,
+  getDiveDeeperIntoTransportationDataRequest,
   ({ selectedCoords }) => selectedCoords
 );
