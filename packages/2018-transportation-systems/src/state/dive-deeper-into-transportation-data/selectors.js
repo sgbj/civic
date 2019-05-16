@@ -3,7 +3,7 @@ import { rootState } from "../selectors";
 
 export const getDiveDeeperIntoTransportationDataRequest = createSelector(
   rootState,
-  ({ DiveDeeperIntoTransportationData }) => DiveDeeperIntoTransportationData
+  ({ diveDeeperIntoTransportationData }) => diveDeeperIntoTransportationData
 );
 
 export const getDiveDeeperIntoTransportationData = createSelector(
