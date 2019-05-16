@@ -20,23 +20,3 @@ export const catchDiveDeeperIntoTransportationDataErrors = createSelector(
   getDiveDeeperIntoTransportationDataRequest,
   ({ error }) => error || error
 );
-
-export const getDiveDeeperIntoTransportationDataCoordsData = createSelector(
-  getDiveDeeperIntoTransportationDataRequest,
-  ({ coordsData }) => coordsData
-);
-
-export const isDiveDeeperIntoTransportationDataCoordsPending = createSelector(
-  getDiveDeeperIntoTransportationDataRequest,
-  ({ coordsPending }) => !!coordsPending
-);
-
-export const catchDiveDeeperIntoTransportationDataCoordsErrors = createSelector(
-  getDiveDeeperIntoTransportationDataRequest,
-  ({ coordsError }) => coordsError || coordsError
-);
-
-export const getSelectedCoords = createSelector(
-  getDiveDeeperIntoTransportationDataRequest,
-  ({ selectedCoords }) => selectedCoords
-);

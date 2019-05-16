@@ -58,7 +58,7 @@ export class DiveDeeperIntoTransportationData extends React.Component {
         loading={isLoading}
         error={error && "Error loading data"}
       >
-        {/* <BaseMap
+        <BaseMap
           mapGLOptions={mapGLOptions}
           initialZoom={ZOOM}
           navigation={false}
@@ -75,7 +75,7 @@ export class DiveDeeperIntoTransportationData extends React.Component {
               highlightColor={[0, 0, 0, 0]}
             />
           )}
-        </BaseMap> */}
+        </BaseMap>
       </CivicStoryCard>
     );
   }
