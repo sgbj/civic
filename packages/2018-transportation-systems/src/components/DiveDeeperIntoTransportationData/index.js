@@ -11,20 +11,12 @@ import {
   IconMap
 } from "@hackoregon/component-library";
 
-import {
-  fetchDiveDeeperIntoTransportationData,
-  fetchDiveDeeperIntoTransportationDataCoords,
-  diveDeeperIntoTransportationDataSetCoords
-} from "../../state/dive-deeper-into-transportation-data/actions";
+import { fetchDiveDeeperIntoTransportationData } from "../../state/dive-deeper-into-transportation-data/actions";
 
 import {
   isDiveDeeperIntoTransportationDataPending,
   catchDiveDeeperIntoTransportationDataErrors,
-  getDiveDeeperIntoTransportationData,
-  isDiveDeeperIntoTransportationDataCoordsPending,
-  catchDiveDeeperIntoTransportationDataCoordsErrors,
-  getDiveDeeperIntoTransportationDataCoordsData,
-  getSelectedCoords
+  getDiveDeeperIntoTransportationData
 } from "../../state/dive-deeper-into-transportation-data/selectors";
 
 import {
@@ -57,54 +49,33 @@ export class DiveDeeperIntoTransportationData extends React.Component {
   }
 
   render() {
-    const {
-      isLoading,
-      error,
-      data,
-      coordsData,
-      selectedCoords,
-      setCoordinates
-    } = this.props;
-
-    const geocoderChange = viewport =>
-      setCoordinates({
-        latitude: viewport.latitude,
-        longitude: viewport.longitude
-      });
-    const coordsProperties =
-      coordsData &&
-      coordsData.features.length > 0 &&
-      coordsData.features[0].properties;
+    const { isLoading, error, data } = this.props;
 
     return (
       <CivicStoryCard
         title="Dive Deeper into Transportation Data"
         slug="dive-deeper-into-transportation-data"
         loading={isLoading}
-        error={error}
+        error={error && "Error loading data"}
       >
-        <BaseMap
+        {/* <BaseMap
           mapGLOptions={mapGLOptions}
-          initialLongitude={selectedCoords.longitude}
-          initialLatitude={selectedCoords.latitude}
           initialZoom={ZOOM}
           navigation={false}
-          locationMarker={coordsProperties}
-          geocoder
-          geocoderOptions={geocoderOptions}
-          geocoderOnChange={geocoderChange}
         >
           {data && (
             <IconMap
-              data={diveDeeperIntoTransportationData}
+              data={data.features}
               opacity={0.5}
               iconAtlas="https://i.imgur.com/xgTAROe.png"
               iconMapping={poiIconMapping}
               iconSizeScale={poiIconZoomScale}
               getColor={poiGetIconColor}
+              autoHighlight={false}
+              highlightColor={[0, 0, 0, 0]}
             />
           )}
-        </BaseMap>
+        </BaseMap> */}
       </CivicStoryCard>
     );
   }
@@ -117,10 +88,7 @@ DiveDeeperIntoTransportationData.propTypes = {
   init: PropTypes.func,
   isLoading: PropTypes.bool,
   error: PropTypes.string,
-  data: PropTypes.shape({}),
-  coordsData: PropTypes.shape({}),
-  selectedCoords: PropTypes.shape({}),
-  setCoordinates: PropTypes.func
+  data: PropTypes.shape({})
 };
 
 // Connect this to the redux store when necessary
@@ -128,19 +96,11 @@ export default connect(
   state => ({
     isLoading: isDiveDeeperIntoTransportationDataPending(state),
     error: catchDiveDeeperIntoTransportationDataErrors(state),
-    data: getDiveDeeperIntoTransportationData(state),
-    isCoordsLoading: isDiveDeeperIntoTransportationDataCoordsPending(state),
-    coordsError: catchDiveDeeperIntoTransportationDataCoordsErrors(state),
-    coordsData: getDiveDeeperIntoTransportationDataCoordsData(state),
-    selectedCoords: getSelectedCoords(state)
+    data: getDiveDeeperIntoTransportationData(state)
   }),
   dispatch => ({
     init() {
       dispatch(fetchDiveDeeperIntoTransportationData());
-    },
-    setCoordinates(coordinates = {}) {
-      dispatch(fetchDiveDeeperIntoTransportationDataCoords(coordinates));
-      dispatch(diveDeeperIntoTransportationDataSetCoords(coordinates));
     }
   })
 )(DiveDeeperIntoTransportationData);
