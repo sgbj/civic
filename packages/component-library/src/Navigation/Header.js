@@ -88,8 +88,28 @@ class Header extends Component {
     };
   }
 
-  togglesNestedMenu = () =>
+  togglesNestedMenu = () => {
+    if (!this.state.menuActive) {
+      // attach/remove event handler
+      document.body.addEventListener(
+        "click",
+        this.handleOutsideClick,
+        this.myHandler
+      );
+    } else {
+      document.body.removeEventListener(
+        "click",
+        this.handleOutsideClick,
+        this.myHandler
+      );
+    }
+
     this.setState({ menuActive: !this.state.menuActive });
+  };
+
+  myHandler = () => {
+    alert("click");
+  };
 
   render() {
     const { children, menu, title, overlay, mainProjectColor } = this.props;
@@ -112,7 +132,6 @@ class Header extends Component {
             <Nav
               menu={menu}
               toggleSubNav={this.togglesNestedMenu}
-              // showNestedMenu={this.state.nestedMenu}
               togglesNestedMenu={this.togglesNestedMenu}
             />
 
