@@ -112,6 +112,7 @@ class Header extends Component {
             <Nav
               menu={menu}
               toggleSubNav={this.togglesNestedMenu}
+              // showNestedMenu={this.state.nestedMenu}
               togglesNestedMenu={this.togglesNestedMenu}
             />
 
