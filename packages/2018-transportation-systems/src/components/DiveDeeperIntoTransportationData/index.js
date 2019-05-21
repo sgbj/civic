@@ -8,7 +8,8 @@ import {
   Placeholder,
   BaseMap,
   HeatMap,
-  IconMap
+  IconMap,
+  Slider
 } from "@hackoregon/component-library";
 
 import { fetchDiveDeeperIntoTransportationData } from "../../state/dive-deeper-into-transportation-data/actions";
@@ -76,6 +77,7 @@ export class DiveDeeperIntoTransportationData extends React.Component {
             />
           )}
         </BaseMap>
+        <Slider value={5} min={0} max={10} />
       </CivicStoryCard>
     );
   }
