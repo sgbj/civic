@@ -9,6 +9,7 @@ import Nav from "./Nav";
 import Logo from "../Logo/LogoAnimated";
 import Icon from "../Icon/Icon";
 import { ICONS } from "../styleConstants";
+import { debuggerStatement } from "@babel/types";
 
 const primaryColor = "rgb(34, 15, 37)";
 
@@ -90,10 +91,10 @@ class Header extends Component {
 
   togglesNestedMenu = () => {
     if (!this.state.menuActive) {
-      // attach/remove event handler
-      document.addEventListener("mousedown", this.handleClickOutside);
+      debugger;
+      document.addEventListener("onmousedown", this.handleClickOutside);
     } else {
-      document.removeEventListener("mouseup", this.handleClickOutside);
+      document.removeEventListener("onmouseup", this.handleClickOutside);
     }
     this.setState({ menuActive: !this.state.menuActive });
   };
@@ -103,6 +104,7 @@ class Header extends Component {
   };
 
   handleClickOutside(event) {
+    console.log("test");
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       alert("You clicked outside of me!");
     }
@@ -127,10 +129,10 @@ class Header extends Component {
             }`}
           >
             <Nav
-              menu={menu}
               ref={this.setWrapperRef}
+              menu={menu}
               toggleSubNav={this.togglesNestedMenu}
-              togglesNestedMenu={this.togglesNestedMenu}
+              toggleNestedMenu={this.togglesNestedMenu}
             />
 
             {children}
