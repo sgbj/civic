@@ -1,6 +1,8 @@
+/** @jsx jsx */
+/* eslint-disable */
+import { jsx, css } from "@emotion/core";
 import PropTypes from "prop-types";
-import React from "react";
-import { css } from "emotion";
+import Button from "@material-ui/core/Button";
 
 const buttonClass = props => css`
   display: ${props.display};
@@ -37,20 +39,20 @@ const buttonClass = props => css`
   }
 `;
 
-const Button = ({ children, onClick, ...props }) => (
-  <button type="button" className={buttonClass(props)} onClick={onClick}>
+const CivicButton = ({ children, onClick, ...props }) => (
+  <Button onClick={onClick} css={buttonClass(props)}>
     {children}
-  </button>
+  </Button>
 );
 
-Button.displayName = "Button";
+CivicButton.displayName = "CivicButton";
 
-Button.propTypes = {
+CivicButton.propTypes = {
   children: PropTypes.string,
   onClick: PropTypes.func
 };
 
-Button.defaultProps = {
+CivicButton.defaultProps = {
   display: "block",
   margin: "12px",
   accentColor: "#DC4556",
@@ -58,4 +60,4 @@ Button.defaultProps = {
   transition: "all .2s ease-in-out"
 };
 
-export default Button;
+export default CivicButton;
