@@ -40,7 +40,7 @@ const buttonClass = props => css`
 `;
 
 const CivicButton = ({ children, onClick, ...props }) => (
-  <Button onClick={onClick} css={buttonClass(props)}>
+  <Button variant="contained" onClick={onClick} css={buttonClass(props)}>
     {children}
   </Button>
 );
