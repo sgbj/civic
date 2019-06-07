@@ -1,4 +1,6 @@
+/* eslint-disable */
 import fetchAdapter from "../fetch-adapter";
+import extfetchAdapter from "../external-fetch-adapter";
 import actionEmitter from "../api-adapter-action-emitter";
 
 // Types
@@ -33,8 +35,8 @@ export const fetchDiveDeeperIntoTransportationData = fetchAdapter(
   }
 );
 
-export const fetchTrafficLightData = fetchAdapter(
-  `/totalcontributionsrawmonthtotal/?limit=300`,
+export const fetchTrafficLightData = extfetchAdapter(
+  `9b5ca8086260421d97b427fbd2307d26_54.geojson`,
   {
     start: trafficLightDataStart,
     success: trafficLightDataSuccess,
