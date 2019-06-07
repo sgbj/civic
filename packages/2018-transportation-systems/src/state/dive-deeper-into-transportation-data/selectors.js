@@ -2,42 +2,42 @@
 import { createSelector } from "reselect";
 import { rootState } from "../selectors";
 
-export const getDiveDeeperIntoTransportationDataRequest = createSelector(
+export const diveDeeperIntoTransportationData = createSelector(
   rootState,
   ({ diveDeeperIntoTransportationData }) => diveDeeperIntoTransportationData
 );
 
-export const getTrafficLightDataRequest = createSelector(
-  rootState,
-  ({ getTrafficLightData }) => getTrafficLightData
-);
+// export const getTrafficLightDataRequest = createSelector(
+//   diveDeeperIntoTransportationData,
+//   ({ getTrafficLightData }) => getTrafficLightData
+// );
 
 export const getDiveDeeperIntoTransportationData = createSelector(
-  getDiveDeeperIntoTransportationDataRequest,
+  diveDeeperIntoTransportationData,
   ({ data }) => data
 );
 
 export const isDiveDeeperIntoTransportationDataPending = createSelector(
-  getDiveDeeperIntoTransportationDataRequest,
+  diveDeeperIntoTransportationData,
   ({ pending }) => !!pending
 );
 
 export const catchDiveDeeperIntoTransportationDataErrors = createSelector(
-  getDiveDeeperIntoTransportationDataRequest,
+  diveDeeperIntoTransportationData,
   ({ error }) => error || error
 );
 
 export const getTrafficLightData = createSelector(
-  getTrafficLightDataRequest,
-  ({ lightData }) => lightData
+  diveDeeperIntoTransportationData,
+  ({ trafficLightData }) => trafficLightData
 );
 
 export const isTrafficLightDataPending = createSelector(
-  getTrafficLightDataRequest,
-  ({ lightPending }) => !!lightPending
+  diveDeeperIntoTransportationData,
+  ({ trafficLightPending }) => !!trafficLightPending
 );
 
 export const catchTrafficLightDataErrors = createSelector(
-  getTrafficLightDataRequest,
-  ({ lightError }) => lightError || lightError
+  diveDeeperIntoTransportationData,
+  ({ trafficLightError }) => trafficLightError || trafficLightError
 );

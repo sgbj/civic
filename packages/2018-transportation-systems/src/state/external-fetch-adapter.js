@@ -1,7 +1,7 @@
 /* eslint-disable */
 import axios from "axios";
 
-const HOST = "https://opendata.arcgis.com/datasets";
+const HOST = "https://opendata.arcgis.com/datasets/";
 const echo = a => a;
 
 const extApiAdapter = (

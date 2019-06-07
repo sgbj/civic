@@ -104,7 +104,6 @@ export class DiveDeeperIntoTransportationData extends React.Component {
             />
           ) */}
         </BaseMap>
-        <Slider value={5} min={0} max={10} />
       </CivicStoryCard>
     );
   }
@@ -117,7 +116,10 @@ DiveDeeperIntoTransportationData.propTypes = {
   init: PropTypes.func,
   isLoading: PropTypes.bool,
   error: PropTypes.string,
-  data: PropTypes.shape({})
+  data: PropTypes.shape({}),
+  lightIsLoading: PropTypes.bool,
+  lightError: PropTypes.string,
+  lightData: PropTypes.shape({})
 };
 
 // Connect this to the redux store when necessary
@@ -125,11 +127,15 @@ export default connect(
   state => ({
     isLoading: isDiveDeeperIntoTransportationDataPending(state),
     error: catchDiveDeeperIntoTransportationDataErrors(state),
-    data: getDiveDeeperIntoTransportationData(state)
+    data: getDiveDeeperIntoTransportationData(state),
+    lightIsLoading: isTrafficLightDataPending(state),
+    lightError: catchTrafficLightDataErrors(state),
+    lightData: getTrafficLightData(state)
   }),
   dispatch => ({
     init() {
       dispatch(fetchDiveDeeperIntoTransportationData());
+      dispatch(fetchTrafficLightData());
     }
   })
 )(DiveDeeperIntoTransportationData);
