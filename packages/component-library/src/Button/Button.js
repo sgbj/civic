@@ -2,7 +2,7 @@
 /* eslint-disable */
 import { jsx, css } from "@emotion/core";
 import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
+import MaterialButton from "@material-ui/core/Button";
 
 const buttonClass = props => css`
   display: ${props.display};
@@ -39,20 +39,24 @@ const buttonClass = props => css`
   }
 `;
 
-const CivicButton = ({ children, onClick, ...props }) => (
-  <Button variant="contained" onClick={onClick} css={buttonClass(props)}>
+const Button = ({ children, onClick, ...props }) => (
+  <MaterialButton
+    variant="contained"
+    onClick={onClick}
+    css={buttonClass(props)}
+  >
     {children}
-  </Button>
+  </MaterialButton>
 );
 
-CivicButton.displayName = "CivicButton";
+Button.displayName = "Button";
 
-CivicButton.propTypes = {
+Button.propTypes = {
   children: PropTypes.string,
   onClick: PropTypes.func
 };
 
-CivicButton.defaultProps = {
+Button.defaultProps = {
   display: "block",
   margin: "12px",
   accentColor: "#DC4556",
@@ -60,4 +64,4 @@ CivicButton.defaultProps = {
   transition: "all .2s ease-in-out"
 };
 
-export default CivicButton;
+export default Button;
