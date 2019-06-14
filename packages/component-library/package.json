@@ -13,7 +13,7 @@
     "test:watch": "yarn run test -- -w",
     "lint": "eslint src stories",
     "storybook": "node scripts/storybook.js",
-    "start": "node scripts/start.js"        
+    "start": "node scripts/start.js"
   },
   "author": "David Daniel <davidedaniel@gmail.com> (http://davidedaniel.github.io)",
   "license": "MIT",
@@ -73,6 +73,9 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "@material-ui/core": "^4.0.0",
+    "@material-ui/lab": "^4.0.0-alpha.15",
+    "@material-ui/styles": "^4.0.2",
     "chai-enzyme": "^1.0.0-beta.1",
     "cheerio": "^1.0.0-rc.2",
     "classnames": "^2.2.5",

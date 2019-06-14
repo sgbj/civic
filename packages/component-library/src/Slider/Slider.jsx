@@ -1,63 +1,45 @@
 import React from "react";
-import { bool, func, node, number } from "prop-types";
-import RcSlider from "rc-slider";
-import "rc-slider/assets/index.css";
+import { func, number } from "prop-types";
+import MaterialSlider from "@material-ui/lab/Slider";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 
-import "./slider.css";
+// https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=1f1123&secondary.color=eb4d5f
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: "#1f1123" },
+    secondary: { main: "#eb4d5f" }
+  }
+});
 
-const SliderWithTooltip = RcSlider.createSliderWithTooltip(RcSlider);
+// Tooltip?
+// https://github.com/tariqwest/material-ui-slider-label
 
-const Slider = ({
-  min,
-  max,
-  onChange,
-  showTooltip,
-  step,
-  dots,
-  tipFormatter,
-  value,
-  SliderComponent,
-  ...rest
-}) => {
+const Slider = ({ min, max, onChange, step, value, ...rest }) => {
   return (
-    <span className="civic-slider-container">
-      <SliderComponent
-        dots={dots}
+    <ThemeProvider theme={theme}>
+      <MaterialSlider
         min={min}
         max={max}
         step={step}
         value={value}
-        onChange={onChange}
+        onChange={(e, newValue) => onChange(newValue)}
         {...rest}
       />
-    </span>
+    </ThemeProvider>
   );
 };
-
-Slider.SliderWithTooltip = props => (
-  <span className="civic-slider-container">
-    <SliderWithTooltip {...props} />
-  </span>
-);
 
 Slider.propTypes = {
   max: number.isRequired,
   min: number.isRequired,
   onChange: func.isRequired,
-  showTooltip: bool,
   step: number,
-  dots: bool, // step markers
-  tipFormatter: func,
-  value: number.isRequired,
-  SliderComponent: node
+  value: number.isRequired
 };
 
 Slider.defaultProps = {
-  showTooltip: false,
-  step: 1,
-  dots: false,
-  tipFormatter: null,
-  SliderComponent: RcSlider
+  step: 1
 };
 
 export default Slider;
