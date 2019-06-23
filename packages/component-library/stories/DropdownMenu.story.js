@@ -4,7 +4,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { checkA11y } from "@storybook/addon-a11y";
 import { withKnobs, object, boolean } from "@storybook/addon-knobs";
-
+import { action } from "@storybook/addon-actions";
 import { Dropdown } from "../src";
 
 const GROUP_IDS = {
@@ -22,7 +22,7 @@ export default () =>
       const searchable = boolean("Searchable", true);
       const disabled = boolean("Disabled", false);
 
-      const options = [
+      const data = [
         { value: "0", label: "Statewide Races" },
         { value: "1", label: "Statewide Ballot Measure" },
         { value: "2", label: "Portland and Multnomah County" },
@@ -30,7 +30,7 @@ export default () =>
         { value: "4", label: "Other" }
       ];
 
-      const data = object("Data", options, GROUP_IDS.DATA);
+      const options = object("Data", data, GROUP_IDS.DATA);
 
       return (
         <Dropdown
@@ -39,7 +39,8 @@ export default () =>
           clearable={clearable}
           searchable={searchable}
           disabled={disabled}
-          dispatch={dispatch => action => dispatch(action)}
+          onChange={action("onChange")}
+          // dispatch={dispatch => action => dispatch(action)}
           reduxAction={payload => console.log({ type: "ACTION", payload })}
         />
       );
