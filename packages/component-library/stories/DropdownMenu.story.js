@@ -3,8 +3,15 @@ import React from "react";
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/react";
 import { checkA11y } from "@storybook/addon-a11y";
-import { withKnobs, object, boolean } from "@storybook/addon-knobs";
-import { action } from "@storybook/addon-actions";
+import {
+  withKnobs,
+  object,
+  boolean,
+  text,
+  select
+} from "@storybook/addon-knobs";
+// import { action } from "@storybook/addon-actions";
+// import Select from "react-select";
 import { Dropdown } from "../src";
 
 const GROUP_IDS = {
@@ -21,7 +28,11 @@ export default () =>
       const clearable = boolean("Clearable", false);
       const searchable = boolean("Searchable", true);
       const disabled = boolean("Disabled", false);
+      // const value = options("value here", true) // HELP? should be populated by select option - HOW??
 
+      const placeholder = text("Select");
+      const simpleValue = boolean("Simple Value", true);
+      const label = "Select data";
       const data = [
         { value: "0", label: "Statewide Races" },
         { value: "1", label: "Statewide Ballot Measure" },
@@ -31,16 +42,19 @@ export default () =>
       ];
 
       const options = object("Data", data, GROUP_IDS.DATA);
+      const defaultValue = "Select";
+      const value = select(label, options, defaultValue, GROUP_IDS.DATA);
 
       return (
         <Dropdown
-          data={data}
           options={options}
+          onChange={() => console.log("onChange", data)}
+          value={value}
           clearable={clearable}
           searchable={searchable}
           disabled={disabled}
-          onChange={action("onChange")}
-          // dispatch={dispatch => action => dispatch(action)}
+          placeholder={placeholder}
+          simpleValue={simpleValue}
           reduxAction={payload => console.log({ type: "ACTION", payload })}
         />
       );
