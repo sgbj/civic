@@ -15,46 +15,76 @@ const GROUP_IDS = {
   CUSTOM: "Custom"
 };
 
+const standardDropdown = () => {
+  const data = [
+    { value: "0", label: "Statewide Races" },
+    { value: "1", label: "Statewide Ballot Measure" },
+    { value: "2", label: "Portland and Multnomah County" },
+    { value: "3", label: "State Legislature" },
+    { value: "4", label: "Other" }
+  ];
+  const options = object("Data", data, GROUP_IDS.DATA);
+
+  return (
+    <StatefulWrapper initialState={{}}>
+      {({ get, set }) => {
+        return (
+          <Dropdown
+            options={options}
+            onChange={value => {
+              set({ value });
+              action("onChange")(value);
+            }}
+            value={get("value")}
+          />
+        );
+      }}
+    </StatefulWrapper>
+  );
+};
+
+const customDropdown = () => {
+  const clearable = boolean("Clearable", false);
+  const searchable = boolean("Searchable", true);
+  const disabled = boolean("Disabled", false);
+
+  const placeholder = text("Placeholder", "Select...");
+  const simpleValue = boolean("Simple Value", true);
+  const data = [
+    { value: "0", label: "Statewide Races" },
+    { value: "1", label: "Statewide Ballot Measure" },
+    { value: "2", label: "Portland and Multnomah County" },
+    { value: "3", label: "State Legislature" },
+    { value: "4", label: "Other" }
+  ];
+  const options = object("Data", data, GROUP_IDS.DATA);
+
+  return (
+    <StatefulWrapper initialState={{}}>
+      {({ get, set }) => {
+        return (
+          <Dropdown
+            options={options}
+            onChange={value => {
+              set({ value });
+              action("onChange")(value);
+            }}
+            value={get("value")}
+            clearable={clearable}
+            searchable={searchable}
+            disabled={disabled}
+            placeholder={placeholder}
+            simpleValue={simpleValue}
+          />
+        );
+      }}
+    </StatefulWrapper>
+  );
+};
+
 export default () =>
   storiesOf("Component Lib|Basic Inputs/Dropdown List", module)
     .addDecorator(checkA11y)
     .addDecorator(withKnobs)
-    .add("Standard", () => {
-      const clearable = boolean("Clearable", false);
-      const searchable = boolean("Searchable", true);
-      const disabled = boolean("Disabled", false);
-
-      const placeholder = text("Select");
-      const simpleValue = boolean("Simple Value", true);
-      const data = [
-        { value: "0", label: "Statewide Races" },
-        { value: "1", label: "Statewide Ballot Measure" },
-        { value: "2", label: "Portland and Multnomah County" },
-        { value: "3", label: "State Legislature" },
-        { value: "4", label: "Other" }
-      ];
-
-      const options = object("Data", data, GROUP_IDS.DATA);
-
-      return (
-        <StatefulWrapper initialState={{ value: 0 }}>
-          {({ get, set }) => {
-            return (
-              <Dropdown
-                options={options}
-                onChange={value => {
-                  set({ value });
-                  action("onChange")(value);
-                }}
-                value={get("value")}
-                clearable={clearable}
-                searchable={searchable}
-                disabled={disabled}
-                placeholder={placeholder}
-                simpleValue={simpleValue}
-              />
-            );
-          }}
-        </StatefulWrapper>
-      );
-    });
+    .add("Standard", standardDropdown)
+    .add("Custom Dropdown", customDropdown);
