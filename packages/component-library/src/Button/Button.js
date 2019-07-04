@@ -3,6 +3,7 @@
 import { jsx, css } from "@emotion/core";
 import PropTypes from "prop-types";
 import MaterialButton from "@material-ui/core/Button";
+import { StylesProvider } from "@material-ui/styles";
 
 const buttonClass = props => css`
   display: ${props.display};
@@ -40,13 +41,11 @@ const buttonClass = props => css`
 `;
 
 const Button = ({ children, onClick, ...props }) => (
-  <MaterialButton
-    variant="contained"
-    onClick={onClick}
-    css={buttonClass(props)}
-  >
-    {children}
-  </MaterialButton>
+  <StylesProvider injectFirst>
+    <MaterialButton onClick={onClick} css={buttonClass(props)}>
+      {children}
+    </MaterialButton>
+  </StylesProvider>
 );
 
 Button.displayName = "Button";
