@@ -67,6 +67,7 @@ const BarChart = ({
               x={85}
               y={45}
             />
+<<<<<<< HEAD
           </VictoryPortal>
           <VictoryPortal>
             <VictoryLabel
@@ -106,6 +107,30 @@ const BarChart = ({
           />
         </VictoryChart>
       </DataChecker>
+=======
+          }
+          data={data.map(d => ({
+            dataKey: d[dataKey],
+            dataValue: d[dataValue],
+            label: `${xLabel}: ${xNumberFormatter(
+              d[dataKey]
+            )} • ${yLabel}: ${yNumberFormatter(d[dataValue])}`
+          }))}
+          // data={[
+          //   { ye: 1994, population: 2000 },
+          //   { ye: 1995, population: 8000 },
+          //   { ye: 1996, population: 6000 },
+          //   { ye: 1997, population: 3000 },
+          //   { ye: 1998, population: 1000 }
+          // ]}
+          events={chartEvents}
+          x="dataKey"
+          y="dataValue"
+          title="Bar Chart"
+          style={{ data: { width: barWidth } }}
+        />
+      </VictoryChart>
+>>>>>>> issue-#574-sort-order
     </ChartContainer>
   );
 };

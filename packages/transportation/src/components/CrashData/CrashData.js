@@ -1,48 +1,48 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 import {
   CivicStoryCard,
-  HorizontalBarChart,
-} from '@hackoregon/component-library';
+  HorizontalBarChart
+} from "@hackoregon/component-library";
 
 const dataInc = [
-  { name: 'Vehicle Incidents', Incidents: 49746 },
-  { name: 'Bike Incidents', Incidents: 2844 },
-  { name: 'Pedestrian Incidents', Incidents: 2327 },
+  { name: "Vehicle Incidents", Incidents: 49746 },
+  { name: "Bike Incidents", Incidents: 2844 },
+  { name: "Pedestrian Incidents", Incidents: 2327 }
 ];
 const dataInj = [
-  { name: 'Vehicle Serious Injury', Incidents: 4.42 },
-  { name: 'Bike Serious Injury', Incidents: 8.12 },
-  { name: 'Pedestrian Serious Injury', Incidents: 13.58 },
+  { name: "Vehicle Serious Injury", Incidents: 4.42 },
+  { name: "Bike Serious Injury", Incidents: 8.12 },
+  { name: "Pedestrian Serious Injury", Incidents: 13.58 }
 ];
 const dataFat = [
-  { name: 'Vehicle Fatalities', Incidents: 0.42 },
-  { name: 'Bike Fatalities', Incidents: 0.6 },
-  { name: 'Pedestrian Fatalities', Incidents: 4.51 },
+  { name: "Vehicle Fatalities", Incidents: 0.42 },
+  { name: "Bike Fatalities", Incidents: 0.6 },
+  { name: "Pedestrian Fatalities", Incidents: 4.51 }
 ];
 const dataAge = [
-  { name: '0-15 years old', Incidents: 8 },
-  { name: '16-30 years old', Incidents: 18 },
-  { name: '31-45 years old', Incidents: 27 },
-  { name: '46-60 years old', Incidents: 26 },
-  { name: '61-75 years old', Incidents: 14 },
-  { name: '75-100 years old', Incidents: 12 },
+  { name: "0-15 years old", Incidents: 8 },
+  { name: "16-30 years old", Incidents: 18 },
+  { name: "31-45 years old", Incidents: 27 },
+  { name: "46-60 years old", Incidents: 26 },
+  { name: "61-75 years old", Incidents: 14 },
+  { name: "75-100 years old", Incidents: 12 }
 ];
 const dataTot = [
   // { name: 'Incidents by serverity', 'Incidents across all modes': 2135, 'Serious injuries across all modes': 123, 'Pedestrian fatalities': 105 },
-  { name: 'Incidents by serverity', Incidents: 2135 },
-  { name: 'Serious injuries across all modes', Incidents: 123 },
-  { name: 'Pedestrian fatalities', Incidents: 105 },
+  { name: "Incidents by serverity", Incidents: 2135 },
+  { name: "Serious injuries across all modes", Incidents: 123 },
+  { name: "Pedestrian fatalities", Incidents: 105 }
 ];
 
 function CrashData(props) {
   const captionStyle = {
-    paddingLeft: '15%',
-    paddingRight: '15%',
-    marginBottom: '3em',
+    paddingLeft: "15%",
+    paddingRight: "15%",
+    marginBottom: "3em"
   };
   const chartCaption = {
-    marginBottom: '3em',
+    marginBottom: "3em"
   };
 
   return (
@@ -147,7 +147,7 @@ function CrashData(props) {
           alt="Noth Intertate and North Lombard Intersection"
           width={500}
           height={300}
-          src={require('./../Transportation-Assets/NInterstate-NLombard.jpg')}
+          src={require("./../Transportation-Assets/NInterstate-NLombard.jpg")}
         />
         <p style={captionStyle}>
           This highly trafficked four light intersection includes a MAX light
@@ -164,7 +164,7 @@ function CrashData(props) {
           alt="South East Stark and South East 112th Intersection"
           width={500}
           height={300}
-          src={require('./../Transportation-Assets/SEStark-SE112th.jpg')}
+          src={require("./../Transportation-Assets/SEStark-SE112th.jpg")}
         />
         <p style={captionStyle}>
           The SE Stark & SE 112th intersection is in the Gateway neighborhood,
@@ -182,7 +182,7 @@ function CrashData(props) {
           alt="North East Sandy and North East 91st Intersection"
           width={500}
           height={300}
-          src={require('./../Transportation-Assets/NESandy-NE91st.jpg')}
+          src={require("./../Transportation-Assets/NESandy-NE91st.jpg")}
         />
         <p style={captionStyle}>
           Although there is a bus stop at the NE Sandy & NE 91st intersection,
@@ -203,7 +203,7 @@ function CrashData(props) {
           alt="Pacific Hightway 15 and SB EF Williams Intersection"
           width={500}
           height={300}
-          src={require('./../Transportation-Assets/PacificHWY-SBWilliams.jpg')}
+          src={require("./../Transportation-Assets/PacificHWY-SBWilliams.jpg")}
         />
         <p style={captionStyle}>
           This intersection is a little different from the other five repeat
@@ -225,7 +225,7 @@ function CrashData(props) {
           alt="South East Division and 156th Intersection"
           width={500}
           height={300}
-          src={require('./../Transportation-Assets/SEDivision-156th.jpg')}
+          src={require("./../Transportation-Assets/SEDivision-156th.jpg")}
         />
         <p style={captionStyle}>
           The SE Division & 156th intersection has a lighted pedestrian
@@ -244,7 +244,7 @@ function CrashData(props) {
           alt="South East Foster and 80th Intersection"
           width={500}
           height={300}
-          src={require('./../Transportation-Assets/SEFoster-SE80th.jpg')}
+          src={require("./../Transportation-Assets/SEFoster-SE80th.jpg")}
         />
         <p style={captionStyle}>
           At the SE Foster & SE 80th intersection there is a lighted pedestrian
@@ -272,13 +272,13 @@ function CrashData(props) {
   );
 }
 
-CrashData.displayName = 'CrashData';
+CrashData.displayName = "CrashData";
 CrashData.defaultProps = {
-  children: <div />,
+  children: <div />
 };
 
 CrashData.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default CrashData;

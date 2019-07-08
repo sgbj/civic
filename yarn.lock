@@ -4026,6 +4026,10 @@ body-parser@1.18.3:
 body-parser@1.19.0:
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.19.0.tgz#96b2709e57c9c4e09a6fd66a8fd979844f69f08a"
+<<<<<<< HEAD
+=======
+  integrity sha512-dhEPs72UPbDnAQJ9ZKMNTP6ptJaionhP5cBb541nXPlW60Jepo9RV/a4fX4XWW9CuFNK22krhrj1+rgzifNCsw==
+>>>>>>> issue-#574-sort-order
   dependencies:
     bytes "3.1.0"
     content-type "~1.0.4"
@@ -4827,7 +4831,7 @@ compressible@~2.0.16:
   dependencies:
     mime-db ">= 1.38.0 < 2"
 
-compression@^1.5.2, compression@^1.6.2, compression@^1.7.4:
+compression@^1.5.2, compression@^1.6.2:
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/compression/-/compression-1.7.4.tgz#95523eff170ca57c29a0ca41e6fe131f41e5bb8f"
   dependencies:
@@ -6843,7 +6847,11 @@ express@^4.14.1, express@^4.16.2:
     utils-merge "1.0.1"
     vary "~1.1.2"
 
+<<<<<<< HEAD
 express@^4.16.3, express@^4.17.0, express@^4.17.1:
+=======
+express@^4.16.3, express@^4.17.0:
+>>>>>>> issue-#574-sort-order
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
   dependencies:
@@ -12137,6 +12145,10 @@ randomfill@^1.0.3:
 range-parser@^1.0.3, range-parser@^1.2.1, range-parser@~1.2.0, range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
+<<<<<<< HEAD
+=======
+  integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
+>>>>>>> issue-#574-sort-order
 
 raw-body@2.3.3:
   version "2.3.3"
@@ -15550,6 +15562,7 @@ webpack-dev-server@^3.1.9, webpack-dev-server@^3.2.1:
     webpack-log "^2.0.0"
     yargs "12.0.2"
 
+<<<<<<< HEAD
 webpack-hot-middleware@^2.22.0, webpack-hot-middleware@^2.25.0:
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.25.0.tgz#4528a0a63ec37f8f8ef565cf9e534d57d09fe706"
@@ -15559,6 +15572,8 @@ webpack-hot-middleware@^2.22.0, webpack-hot-middleware@^2.25.0:
     querystring "^0.2.0"
     strip-ansi "^3.0.0"
 
+=======
+>>>>>>> issue-#574-sort-order
 webpack-hot-middleware@^2.24.3:
   version "2.24.3"
   resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.24.3.tgz#5bb76259a8fc0d97463ab517640ba91d3382d4a6"
@@ -15639,6 +15654,10 @@ webpack@^4.28.0, webpack@^4.32.0, webpack@^4.33.0:
 webpack@^4.29.6:
   version "4.29.6"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.29.6.tgz#66bf0ec8beee4d469f8b598d3988ff9d8d90e955"
+<<<<<<< HEAD
+=======
+  integrity sha512-MwBwpiE1BQpMDkbnUUaW6K8RFZjljJHArC6tWQJoFm0oQtfoSebtg4Y7/QHnJ/SddtjYLHaKGX64CFjG5rehJw==
+>>>>>>> issue-#574-sort-order
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"

@@ -89,5 +89,8 @@ module.exports = () => {
   setupServer.then(open(`http://localhost:3000`));
 
   // Doesn't wait for Webpack Bundle Analyzer to finalize before opening localhost.
+<<<<<<< HEAD
   app.listen(port, announceServer);
+=======
+>>>>>>> issue-#574-sort-order
 };

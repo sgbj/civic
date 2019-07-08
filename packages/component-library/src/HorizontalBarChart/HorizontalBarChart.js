@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import compareValues from "../utils/compareValues";
 import {
   VictoryAxis,
   VictoryBar,
@@ -29,13 +30,15 @@ const HorizontalBarChart = ({
   yLabel,
   dataValueFormatter,
   dataLabelFormatter,
-  minimalist
+  minimalist,
+  sortBy
 }) => {
   const barData =
     sortOrder && sortOrder.length
       ? data
-      : data.map((d, index) => {
-          return { ...d, defaultSort: index + 1 };
+      : data.sort(compareValues(dataValue, sortBy)).map((d, index) => {
+          const sort = (sortBy = "Ascending" ? index + 1 : (index + 1) * -1); // Bar chart sorts bottom up
+          return { ...d, defaultSort: sort };
         });
   const sortOrderKey =
     sortOrder && sortOrder.length ? sortOrder : "defaultSort";
@@ -134,6 +137,7 @@ const HorizontalBarChart = ({
             y="dataValue"
             events={chartEvents}
           />
+<<<<<<< HEAD
           <VictoryBar
             horizontal
             labelComponent={
@@ -148,11 +152,50 @@ const HorizontalBarChart = ({
             }
             domainPadding={0}
             data={barData.map(d => ({
+=======
+        </VictoryPortal>
+        <VictoryBar
+          horizontal
+          labelComponent={
+            <NegativeAwareTickLabel
+              x={0}
+              orientation="left"
+              theme={CivicVictoryTheme.civic}
+            />
+          }
+          domainPadding={0}
+          data={barData.map(d => ({
+            sortOrder: d[sortOrderKey],
+            dataValue: d[dataValue],
+            label: dataLabelFormatter(d[dataLabel])
+          }))}
+          x="sortOrder"
+          y="dataValue"
+          events={chartEvents}
+        />
+        <VictoryBar
+          horizontal
+          labelComponent={
+            <VictoryTooltip
+              x={325}
+              y={0}
+              orientation="bottom"
+              pointerLength={0}
+              cornerRadius={0}
+              theme={CivicVictoryTheme.civic}
+            />
+          }
+          domainPadding={0}
+          data={barData.map(d =>
+            // console.log(d),
+            ({
+>>>>>>> issue-#574-sort-order
               sortOrder: d[sortOrderKey],
               dataValue: d[dataValue],
               label: `${dataLabelFormatter(d[dataLabel])}: ${dataValueFormatter(
                 d[dataValue]
               )}`
+<<<<<<< HEAD
             }))}
             style={{
               data: { fill: "none" }
@@ -164,6 +207,19 @@ const HorizontalBarChart = ({
           />
         </VictoryChart>
       </DataChecker>
+=======
+            })
+          )}
+          style={{
+            data: { fill: "none" }
+          }}
+          title="Horizontal Bar Chart"
+          x="sortOrder"
+          y="dataValue"
+          events={chartEvents}
+        />
+      </VictoryChart>
+>>>>>>> issue-#574-sort-order
     </ChartContainer>
   );
 };
@@ -200,7 +256,8 @@ HorizontalBarChart.defaultProps = {
   yLabel: "Y",
   dataValueFormatter: civicFormat.numeric,
   dataLabelFormatter: civicFormat.unformatted,
-  minimalist: false
+  minimalist: false,
+  sortBy: "Descending"
 };
 
 export default HorizontalBarChart;
