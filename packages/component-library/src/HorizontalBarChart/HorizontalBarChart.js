@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import compareValues from "../utils/compareValues";
 import {
   VictoryAxis,
   VictoryBar,
@@ -9,6 +8,7 @@ import {
   VictoryPortal,
   VictoryTooltip
 } from "victory";
+import compareValues from "../utils/compareValues";
 
 import ChartContainer from "../ChartContainer";
 import civicFormat from "../utils/civicFormat";
