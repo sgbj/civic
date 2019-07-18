@@ -6,6 +6,13 @@ import { PageLayout } from "@hackoregon/component-library";
 import DeclineInRidership from "../DeclineInRidership";
 import ServiceAndRidership from "../ServiceAndRidership";
 import DriversOfPublicTransitParticipation from "../DriversOfPublicTransitParticipation";
+import ExploreBusServiceAndEquity from "../ExploreBusServiceAndEquity";
+import MobilityTrendsUsingRealTimeData from "../MobilityTrendsUsingRealTimeData";
+import TheSecretIsInTheSensors from "../TheSecretIsInTheSensors";
+import DiveDeeperIntoTransportationData from "../DiveDeeperIntoTransportationData";
+import ICanMakeCards from "../ICanMakeCards";
+import ReallyReallyFast from "../ReallyReallyFast";
+import WithReduxInfrastructure from "../WithReduxInfrastructure";
 
 const App = () => (
   <PageLayout
@@ -27,6 +34,9 @@ const App = () => (
     {/* <MobilityTrendsUsingRealTimeData /> */}
     {/* <TheSecretIsInTheSensors /> */}
     {/* <DiveDeeperIntoTransportationData /> */}
+    <ICanMakeCards />
+    <ReallyReallyFast />
+    <WithReduxInfrastructure />
   </PageLayout>
 );
 
