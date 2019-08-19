@@ -57,7 +57,7 @@ travis:
 
 deploy:
 	@if [ -z "$$TRAVIS_PULL_REQUEST" ] || [ "$$TRAVIS_PULL_REQUEST" = "false" ]; then \
-		if [ "$$TRAVIS_BRANCH" = "master" ]; then \
+		if [ "$$TRAVIS_BRANCH" = "revert-2017" ]; then \
 			if [ "$$SUITE" = "2017" ]; then \
 				make deploy-2017; \
 			fi; \

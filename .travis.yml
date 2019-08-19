@@ -13,8 +13,8 @@ install:
 matrix:
   include:
   - env: SUITE=2017
-  - env: SUITE=2018
-  - env: SUITE=COMPONENT_LIBRARY
+  # - env: SUITE=2018
+  # - env: SUITE=COMPONENT_LIBRARY
 script:
 - yarn run travis
 after_success:
