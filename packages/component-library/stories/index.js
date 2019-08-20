@@ -46,7 +46,7 @@ import DataVisualizationStyle from "./styleGuideStories/DataVisualizationStyle.s
 import FormsStyle from "./styleGuideStories/FormsStyle.story";
 import IconographyStyle from "./styleGuideStories/IconographyStyle.story";
 import Introduction from "./styleGuideStories/Introduction.story";
-import LogosStyle from "./styleGuideStories/LogosStyle.story";
+import logosStyle from "./styleGuideStories/LogosStyle.story";
 import MapsStyle from "./styleGuideStories/MapsStyle.story";
 import MotionStyle from "./styleGuideStories/MotionStyle.story";
 import NavigationStyle from "./styleGuideStories/NavigationStyle.story";
@@ -75,7 +75,6 @@ storiesOf("Welcome|About Us", module)
 storiesOf("Design|Brand", module)
   .addParameters({ options: { showPanel: false } })
   .addDecorator(checkA11y)
-  .add("Logos", () => <LogosStyle />)
   .add("Color Theme", () => <ColorThemeStyle />)
   .add("Typography", () => (
     <>
@@ -85,6 +84,7 @@ storiesOf("Design|Brand", module)
       <TypographyStyleParagraphs />
     </>
   ));
+logosStyle();
 
 // UX Style Guide
 storiesOf("Design|UX Style Guide", module)
