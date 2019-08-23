@@ -29,7 +29,7 @@ const RadioButtonGroup = ({
     row={row}
     inputProps={{ "aria-labelledby": { grpLabel } }}
   >
-    <FormLabel>{grpLabel}</FormLabel>
+    {grpLabel && <FormLabel>{grpLabel}</FormLabel>}
     {labels.map(label => (
       <FormControlLabel
         key={shortid.generate()}
@@ -63,7 +63,6 @@ RadioButtonGroup.propTypes = {
 RadioButtonGroup.defaultProps = {
   labels: ["Label 1", "Label 2", "Label 3"],
   value: "Label 1",
-  grpLabel: "GroupLabel",
   labelPlacement: "end",
   row: false,
   disabled: false

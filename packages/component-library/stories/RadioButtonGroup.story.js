@@ -44,12 +44,12 @@ export default () =>
         const radioLabels = ["2016", "2017", "2018"];
         const labels = array("Labels", radioLabels, ", ", GROUP_IDS.LABELS);
         const disabled = boolean("Disabled", false, GROUP_IDS.STATE);
+        const grpLabelProps = grpLabel === "" ? {} : { grpLabel };
         return (
           <StatefulWrapper initialState={{ value: radioLabels[0] }}>
             {({ get, set }) => {
               return (
                 <RadioButtonGroup
-                  grpLabel={grpLabel}
                   labels={labels}
                   onChange={event => {
                     set({ value: event.target.value });
@@ -57,6 +57,7 @@ export default () =>
                   }}
                   value={get("value")}
                   disabled={disabled}
+                  {...grpLabelProps}
                 />
               );
             }}
