@@ -7,12 +7,14 @@ import { CardRegistry as TransportationSystems } from "@hackoregon/2018-transpor
 // 2019 project routes
 import { CardRegistry as Template2019 } from "@hackoregon/2019-template";
 import { CardRegistry as Housing2019 } from "@hackoregon/2019-housing";
+import { CardRegistry as People2019 } from "@hackoregon/2019-people";
 
 import Registry from "./utils/registry";
 
 const decorate = project => obj => ({ ...obj, project });
 
 const allEntries = []
+  .concat(People2019.map(decorate("@hackoregon/2019-people")))
   .concat(
     FarmersMarkets.map(decorate("@hackoregon/2018-example-farmers-markets"))
   )
